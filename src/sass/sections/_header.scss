@@ -1,0 +1,35 @@
+.header {
+  background-color: $headerBg;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+
+  .logo-img {
+
+    img {
+      height: 4rem;
+    }
+  }
+
+  .search-form {
+    position: relative;
+
+    input {
+      border-radius: 30px;
+      background: $inputBg;
+      border: none;
+      padding: 1rem 12rem 1rem 1rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .likes {
+
+  }
+}
