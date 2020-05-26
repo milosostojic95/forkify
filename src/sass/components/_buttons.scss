@@ -9,6 +9,10 @@
   border: none;
   color: $btnColor;
 
+  &:hover {
+    color: red;
+  }
+
   .search-icon {
 
 

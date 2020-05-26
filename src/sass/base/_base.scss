@@ -20,4 +20,9 @@ body {
 }
 .forkify {
   width: 100%;
+
+  .forkify-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
