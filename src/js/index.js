@@ -1,1 +1,1 @@
-console.log('ide gas')
+import '../sass/main.scss';
