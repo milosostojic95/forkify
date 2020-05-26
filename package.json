@@ -4,7 +4,7 @@
   "description": "forkify project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/milosostojic95/recipes_search#readme",
   "devDependencies": {
-    "webpack": "^4.43.0"
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }
