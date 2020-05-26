@@ -1,0 +1,22 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "forkify project",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milosostojic95/recipes_search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milosostojic95/recipes_search/issues"
+  },
+  "homepage": "https://github.com/milosostojic95/recipes_search#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0"
+  }
+}
