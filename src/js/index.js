@@ -1,7 +1,7 @@
 import '../sass/main.scss';
 import Search from './modules/Search';
 import * as searchView from './views/searchView';
-import {elements} from './views/base';
+import {elements, renderLoader, clearLoader} from './views/base';
 
 const state = {};
 
@@ -15,8 +15,10 @@ const controlSearch = async () => {
     //3. prepare Ui for result
     searchView.clearInput();
     searchView.clearResults();
+    renderLoader(elements.searchRes);
     //4. search for result
     await state.search.getResults();
+    clearLoader();
     //5. render result on Ui
     searchView.renderResult(state.search.result);
   }

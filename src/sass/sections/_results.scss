@@ -4,6 +4,29 @@
   min-height: 75vh;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+
+  .loader {
+    margin: 2 auto;
+    text-align: center;
+
+    img {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 10px;
+      background: #F59A83;
+      animation: rotate 1.5s infinite linear;
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
 
   .result-list {
     overflow: hidden;
