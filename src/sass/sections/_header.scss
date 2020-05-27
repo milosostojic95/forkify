@@ -21,10 +21,15 @@
       border-radius: 30px;
       background: $inputBg;
       border: none;
-      padding: 1rem 20rem 1rem 1rem;
+      padding: 1rem 2rem;
+      width: 30rem;
 
       &:focus {
         outline: none;
+      }
+
+      &::placeholder {
+        color: grey;
       }
     }
   }
