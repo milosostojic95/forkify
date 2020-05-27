@@ -13,6 +13,10 @@
     color: red;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   .search-icon {
 
 

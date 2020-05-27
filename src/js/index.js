@@ -1,27 +1,29 @@
 import '../sass/main.scss';
 import Search from './modules/Search';
+import * as searchView from './views/searchView';
+import {elements} from './views/base';
 
 const state = {};
 
 const controlSearch = async () => {
   // 1. get quert from view
-  const query = 'pizza'
+  const query = searchView.getInput();
+  console.log(query);
   if(query) {
     //2. new search object
     state.search = new Search(query);
     //3. prepare Ui for result
-
+    searchView.clearInput();
+    searchView.clearResults();
     //4. search for result
     await state.search.getResults();
     //5. render result on Ui
-    console.log(state.search.result)
+    searchView.renderResult(state.search.result);
   }
 }
 
 
-document.querySelector('.search-form').addEventListener('submit',(e)=> {
+elements.searchForm.addEventListener('submit',(e)=> {
   e.preventDefault();
   controlSearch();
-})
-
-console.log(state)
+});

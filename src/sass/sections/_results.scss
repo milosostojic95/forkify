@@ -1,5 +1,58 @@
 .results {
   flex-basis: 25%;
   background: $inputBg;
-  min-height: 60vh;
+  min-height: 75vh;
+  display: flex;
+  justify-content: space-around;
+
+  .result-list {
+    overflow: hidden;
+    padding-top: 3rem;
+
+    li {
+      list-style-type: none;
+
+      &:hover {
+        background: rgba(0,0,0,.08);
+        transform: scale(1.05);
+        transition: all .3s ease;
+      }
+
+      .results-link {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        padding: 1rem 1rem;
+
+        .results-fig {
+          flex-basis: 27%;
+
+          img {
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+          }
+        }
+
+        .results-data {
+          flex-basis: 73%;
+
+          h4 {
+            color: $titleColor;
+            text-transform: uppercase;
+            font-weight: 300;
+            padding-top: .5rem;
+          }
+
+          p {
+            color: grey;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 12px;
+            padding-top: .75rem;
+          }
+        }
+      }
+    }
+  }
 }

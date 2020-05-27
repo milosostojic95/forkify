@@ -9,9 +9,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .row {
@@ -20,6 +17,7 @@ body {
 }
 .forkify {
   width: 100%;
+  padding-top: 7rem;
 
   .forkify-wrapper {
     display: flex;
