@@ -7,6 +7,7 @@ export const clearInput = () => {
 
 export const clearResults = () => {
   elements.searchResList.innerHTML = '';
+  elements.resultPages.innerHTML = '';
 };
 
 const limitRecipeTitle = (title, limit = 17) => {
@@ -40,6 +41,38 @@ const renderRecipe = recipe => {
   elements.searchResList.insertAdjacentHTML('beforeend',markup);
 };
 
-export const renderResult = recipis => {
-  recipis.forEach(renderRecipe)
+const createBtn = (page, type) => `
+  <button class="btn-inline btn-${type}" data-goto="${type === 'prev' ? page - 1 : page + 1}">
+    <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+  </button>
+  `
+
+const renderButtons = (page, numResults, numPerPage)=> {
+  const pages = Math.ceil(numResults / numPerPage);
+  let button;
+
+  if(page === 1 && pages > 1) {
+    // onelu next button
+    button = createBtn(page, 'next');
+  } else if (page < pages) {
+    // display two buttons
+    button =
+    `
+    ${createBtn(page, 'prev')}
+    ${createBtn(page, 'next')}
+    `
+  } else if(page === pages && pages > 1) {
+    // display prev btn
+    button = createBtn(page, 'prev')
+  }
+
+  elements.resultPages.insertAdjacentHTML('afterbegin',button)
+};
+
+export const renderResult = (recipis, page = 1, postPerPage = 10) => {
+  const start = (page - 1) * postPerPage;
+  const end = page * postPerPage;
+  recipis.slice(start, end).forEach(renderRecipe);
+
+  renderButtons(page, recipis.length, postPerPage);
 };
