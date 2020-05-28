@@ -24,7 +24,6 @@ const controlSearch = async () => {
   }
 }
 
-
 elements.searchForm.addEventListener('submit',(e)=> {
   e.preventDefault();
   controlSearch();
@@ -37,4 +36,4 @@ elements.resultPages.addEventListener('click', (e)=> {
     searchView.clearResults();
     searchView.renderResult(state.search.result, goToPage);
   }
-})
+});
