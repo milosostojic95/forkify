@@ -1,10 +1,13 @@
 import '../sass/main.scss';
 import Search from './modules/Search';
+import Recipe from './modules/Recipe';
 import * as searchView from './views/searchView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
 const state = {};
 
+
+// search controller
 const controlSearch = async () => {
   // 1. get quert from view
   const query = searchView.getInput();
@@ -24,6 +27,8 @@ const controlSearch = async () => {
   }
 }
 
+// recipe controler
+
 elements.searchForm.addEventListener('submit',(e)=> {
   e.preventDefault();
   controlSearch();
@@ -37,3 +42,4 @@ elements.resultPages.addEventListener('click', (e)=> {
     searchView.renderResult(state.search.result, goToPage);
   }
 });
+
