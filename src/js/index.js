@@ -50,16 +50,17 @@ elements.resultPages.addEventListener('click', (e)=> {
 const controlRecipe =  async () => {
   // get id form url
   const id = window.location.hash.replace('#', '');
-  console.log(id)
 
   if(id) {
     // create new object
     state.recipe = new Recipe(id);
+    renderLoader(elements.loaderRecipe);
     try {
       //get recipe from data
       await state.recipe.getRecipe();
-      state.recipe.caclTime;
-      state.recipe.caclServings;
+      state.recipe.parseIngredients();
+      state.recipe.calcTime();
+      state.recipe.calcServings();
       //reneder recipe
       console.log(state.recipe)
     } catch (error) {
