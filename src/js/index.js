@@ -2,6 +2,7 @@ import '../sass/main.scss';
 import Search from './modules/Search';
 import Recipe from './modules/Recipe';
 import * as searchView from './views/searchView';
+import * as searchRecipe from './views/recipeView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
 const state = {};
