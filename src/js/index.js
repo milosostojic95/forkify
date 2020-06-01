@@ -2,7 +2,7 @@ import '../sass/main.scss';
 import Search from './modules/Search';
 import Recipe from './modules/Recipe';
 import * as searchView from './views/searchView';
-import * as searchRecipe from './views/recipeView';
+import * as recipeView from './views/recipeView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
 const state = {};
@@ -54,16 +54,21 @@ const controlRecipe =  async () => {
 
   if(id) {
     // create new object
-    state.recipe = new Recipe(id);
-    renderLoader(elements.loaderRecipe);
+    recipeView.clearRecipe();
+    renderLoader(elements.recipe);
+    state.search = new Recipe(id);
+
     try {
       //get recipe from data
-      await state.recipe.getRecipe();
-      state.recipe.parseIngredients();
-      state.recipe.calcTime();
-      state.recipe.calcServings();
+      await state.search.getRecipe();
+      state.search.parseIngredients();
+      state.search.calcTime();
+      state.search.calcServings();
       //reneder recipe
-      console.log(state.recipe)
+      clearLoader();
+
+      recipeView.renderRecipe(state.search);
+
     } catch (error) {
       console.log(error);
     }
