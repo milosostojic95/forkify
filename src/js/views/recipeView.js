@@ -1,3 +1,5 @@
-export const renderrecipes = () => {
+export const renderRecipe = () => {
+  const markup = `
 
+  `
 }

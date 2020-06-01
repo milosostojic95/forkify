@@ -3,36 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <title>Forkify App</title>
+<link href="main.css" rel="stylesheet"></head>
 <body>
   <section class="forkify">
     <div class="row">
       <div class="forkify-wrapper">
         <header class="header">
           <div class="logo-img">
-            <img src="images/favicon.png" alt="">
-            <form class="search-form">
-              <input type="text" class="search-field" placeholder="Searc over 1,000,000 recepes...">
-              <button class="btn btn-search">
-                <svg class="search__icon">
-                  <use href="./images/icons.svg#icon-magnifying-glass"></use>
-                </svg>
-                <span>Search</span>
-              </button>
-            </form>
-            <div class="likes">
-              <div class="likes-field">
-                <svg class="likes-icon">
-                    <use href="./images/icons.svg#icon-heart"></use>
-                </svg>
-            </div>
+            <img src="images/logo.png" alt="">
+          </div>
+          <form class="search-form">
+            <input type="text" class="search-field" placeholder="Search over 1,000,000 recepes..">
+            <button class="btn btn-search">
+              <span>Search</span>
+            </button>
+          </form>
+          <div class="likes">
+            <div class="likes-field">
+              <svg class="likes-icon">
+              </svg>
             </div>
           </div>
         </header>
-        <div class="results"></div>
-        <div class="recipe"></div>
-        <div class="shooping"></div>
+        <div class="results">
+          <ul class="result-list"></ul>
+          <div class="result-pages">
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="recipe-wrapper">
+            <div class="recipe-image">
+              <img src="images/test-1.jpg" alt="Tomato" class="recipeimg">
+              <h1 class="recipe-title">
+                  <span>Pasta with tomato cream sauce</span>
+              </h1>
+            </div>
+            <div class="recipe-details">
+              <div class="recipe-info center">
+                <svg class="recipe-info-icon">
+                  <use href="./images/icons.svg#icon-stopwatch"></use>
+                </svg>
+                <span class="recipe-info-data-minuts">45</span>
+                <span class="recipe-info-text">min</span>
+              </div>
+              <div class="recipe-info center">
+                <div class="recipe-info-icon"></div>
+                <span class="recipe-info-data-minuts">45</span>
+                <span class="recipe-info-text">min</span>
+              </div>
+              <div class="recipe-info-buttons center">
+                <button class="negative">-</button>
+                <button class="add">+</button>
+              </div>
+              <div class="recipe-love center">
+                <button class="love"></button>
+              </div>
+            </div>
+            <div class="recipe-ingrediants">
+              <ul class="recipe-ingrediants-list">
+                <li>
+                  <div class="recipe-icon"></div>
+                  <div class="recipe-count"></div>
+                  <div class="recipe-unit"></div>
+                  <div class="recipe-ingrediant"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="shooping">
+          <div class="content-title">
+            <h3>MY SHOPPING LIST</h3>
+            <ul class="shopping-list">
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
