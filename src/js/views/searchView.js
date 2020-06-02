@@ -12,6 +12,7 @@ export const highlightSelecter = id=> {
   })
   document.querySelector(`a[href="#${id}"]`).classList.add('results-link-active')
 }
+
 export const clearResults = () => {
   elements.searchResList.innerHTML = '';
   elements.resultPages.innerHTML = '';

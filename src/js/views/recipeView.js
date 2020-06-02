@@ -1,5 +1,6 @@
 import {elements} from './base';
 import {Fraction} from 'fractional';
+import Recipe from '../modules/Recipe';
 
 const formatCount = count => {
   if(count) {
@@ -47,14 +48,14 @@ export const renderRecipe = (recipe) => {
           <svg class="recipe-info-icon">
             <use href="./images/icons.svg#icon-stopwatch"></use>
           </svg>
-          <span class="recipe-info-data-minuts">${recipe.time}</span>
+          <span class="recipe-info-data time">${recipe.time}</span>
           <span class="recipe-info-text"> Minutes</span>
         </div>
         <div class="recipe-info center">
           <svg class="recipe-info-icon">
             <use href="./images/icons.svg#icon-man"></use>
           </svg>
-          <span class="recipe-info-data-minuts">${recipe.servings}</span>
+          <span class="recipe-info-data servings">${recipe.servings}</span>
           <span class="recipe-info-text"> Service</span>
         </div>
         <div class="recipe-info-buttons center">
@@ -93,4 +94,14 @@ export const renderRecipe = (recipe) => {
   `;
 
   elements.recipe.insertAdjacentHTML('beforeend', markup);
+}
+
+export const updateServingsIngrediants = (recipe) => {
+  if(recipe.servings > 0) {
+    document.querySelector('.servings').textContent = recipe.servings;
+  }
+  const arrIng = Array.from(document.querySelectorAll('.recipe-count'));
+  arrIng.forEach((el,i) => {
+    el.textContent = formatCount(recipe.ingredients[i].count);
+  })
 }

@@ -61,18 +61,17 @@ const controlRecipe =  async () => {
       searchView.highlightSelecter(id);
     }
 
-    state.search = new Recipe(id);
-
+    state.recipe = new Recipe(id);
 
     try {
       //get recipe from data
-      await state.search.getRecipe();
-      state.search.parseIngredients();
-      state.search.calcTime();
-      state.search.calcServings();
+      await state.recipe.getRecipe();
+      state.recipe.parseIngredients();
+      state.recipe.calcTime();
+      state.recipe.calcServings();
       //reneder recipe
       clearLoader();
-      recipeView.renderRecipe(state.search);
+      recipeView.renderRecipe(state.recipe);
 
     } catch (error) {
       console.log(error);
@@ -81,3 +80,14 @@ const controlRecipe =  async () => {
 }
 
 ['hashchange','load'].forEach(event => window.addEventListener(event,controlRecipe));
+
+// update details on click
+elements.recipe.addEventListener('click', e => {
+
+  if(e.target.matches('.negative, .negative *')) {
+    state.recipe.updateDetails('negative');
+  } else if(e.target.matches('.add, .add *')) {
+    state.recipe.updateDetails('add');
+  }
+  recipeView.updateServingsIngrediants(state.recipe);
+})
