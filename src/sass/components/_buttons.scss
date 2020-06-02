@@ -22,3 +22,24 @@
 
   }
 }
+
+.recipe-btn {
+  border: none;
+  background: linear-gradient(to right bottom, #FBDB89, #F48982);
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: .75rem;
+  border-radius: 20px;
+
+  svg {
+    height: 1.3rem;
+    width: 1.3rem;
+    fill: #F59A83;
+  }
+
+  span {
+    color: $btnColor;
+    margin-left: .5rem;
+  }
+}

@@ -56,7 +56,13 @@ const controlRecipe =  async () => {
     // create new object
     recipeView.clearRecipe();
     renderLoader(elements.recipe);
+
+    if(state.search) {
+      searchView.highlightSelecter(id);
+    }
+
     state.search = new Recipe(id);
+
 
     try {
       //get recipe from data
@@ -66,7 +72,6 @@ const controlRecipe =  async () => {
       state.search.calcServings();
       //reneder recipe
       clearLoader();
-
       recipeView.renderRecipe(state.search);
 
     } catch (error) {

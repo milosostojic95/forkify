@@ -5,6 +5,13 @@ export const clearInput = () => {
   elements.searchInput.value = '';
 };
 
+export const highlightSelecter = id=> {
+  const resultsArr = Array.from(document.querySelectorAll('.results-link'));
+  resultsArr.forEach( el =>{
+    el.classList.remove('results-link-active');
+  })
+  document.querySelector(`a[href="#${id}"]`).classList.add('results-link-active')
+}
 export const clearResults = () => {
   elements.searchResList.innerHTML = '';
   elements.resultPages.innerHTML = '';
@@ -27,7 +34,7 @@ const limitRecipeTitle = (title, limit = 17) => {
 const renderRecipe = recipe => {
   const markup = `
   <li>
-    <a class="results-link results-link-active" href="#${recipe.recipe_id}">
+    <a class="results-link" href="#${recipe.recipe_id}">
       <figure class="results-fig">
             <img src="${recipe.image_url}" alt="${recipe.title}">
       </figure>

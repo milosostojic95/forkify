@@ -1,4 +1,21 @@
 import {elements} from './base';
+import {Fraction} from 'fractional';
+
+const formatCount = count => {
+  if(count) {
+    const [int,dec] = count.toString().split('.').map(el =>parseInt(el, 10));
+
+    if(!dec) return count;
+    if(int === 0) {
+      const fr = new Fraction(count);
+      return `${fr.numerator}/${fr.denominator}`;
+    } else {
+      const fr = new Fraction(count-int);
+      return `${int}${fr.numerator}/${fr.denominator}`;
+    }
+  }
+  return '?';
+}
 
 const createIngredient = ingredient => `
   <li>
@@ -7,9 +24,9 @@ const createIngredient = ingredient => `
         <use href="./images/icons.svg#icon-check"></use>
       </svg>
     </div>
-    <div class="recipe-count"> ${ingredient.count} </div>
+    <div class="recipe-count"> ${formatCount(ingredient.count)}</div>
     <div class="recipe-unit"> ${ingredient.unit} </div>
-    <div class="recipe-ingrediant"> ${ingredient.ingredient}</div>
+    <div class="recipe-ingrediant"> ${ ingredient.ingredient}</div>
   </li>
 `;
 export const clearRecipe = () => {
@@ -31,14 +48,14 @@ export const renderRecipe = (recipe) => {
             <use href="./images/icons.svg#icon-stopwatch"></use>
           </svg>
           <span class="recipe-info-data-minuts">${recipe.time}</span>
-          <span class="recipe-info-text">min</span>
+          <span class="recipe-info-text"> Minutes</span>
         </div>
         <div class="recipe-info center">
           <svg class="recipe-info-icon">
             <use href="./images/icons.svg#icon-man"></use>
           </svg>
           <span class="recipe-info-data-minuts">${recipe.servings}</span>
-          <span class="recipe-info-text">min</span>
+          <span class="recipe-info-text"> Service</span>
         </div>
         <div class="recipe-info-buttons center">
           <button class="negative">
@@ -64,6 +81,13 @@ export const renderRecipe = (recipe) => {
         <ul class="recipe-ingrediants-list">
         ${recipe.ingredients.map(el => createIngredient(el)).join('')}
         </ul>
+
+        <button class="recipe-btn recipe-btn-add">
+                <svg class="search__icon">
+                    <use href="./images/icons.svg#icon-shopping-cart"></use>
+                </svg>
+                <span>Add to shopping list</span>
+            </button>
       </div>
     </div>
   `;
