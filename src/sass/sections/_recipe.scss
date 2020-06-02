@@ -5,12 +5,10 @@
   .recipe-wrapper {
 
     .recipe-image {
-      position: relative;
 
       img {
         width: 100%;
         height: 350px;
-        object-fit: cover;
       }
 
       .recipe-title {
