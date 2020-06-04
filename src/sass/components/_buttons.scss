@@ -43,3 +43,26 @@
     margin-left: .5rem;
   }
 }
+
+.btn-prev {
+  background: transparent;
+  border: none;
+  float: left;
+  background-color: #F59A83;
+  padding: .5rem;
+  margin: 0 0 1rem 1rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn-next {
+  background: transparent;
+  border: none;
+  float: right;
+  background-color: #F59A83;
+  padding: .5rem;
+  margin: 0 1rem 1rem 0;
+  color: white;
+  border-radius: 10px;
+
+}
